@@ -56,7 +56,12 @@ export default function LandingPage() {
           </div>
 
           <div style={styles.card}>
-            <Image src="/download (1).webp" width={50} height={50} alt="Responsive" />
+            <Image
+              src="/download (1).webp"
+              width={50}
+              height={50}
+              alt="Responsive"
+            />
             <h3>Works Everywhere</h3>
             <p>Access your notes from desktop, tablet, or mobile.</p>
           </div>
@@ -87,9 +92,33 @@ export default function LandingPage() {
 
       {/* Contact */}
       <section style={styles.contact}>
-        <h2>Need Help?</h2>
-        <p>Email: antonymwangiw85@gmail.com</p>
-        <p>Phone: +254 700 000 000</p>
+        <div style={styles.contactCard}>
+          <h2 style={styles.contactTitle}>Need Help?</h2>
+          <p style={styles.contactText}>
+            Reach out to us anytime — we’re happy to help.
+          </p>
+
+          <div style={styles.contactDetails}>
+            <p>
+              📧 <strong>Email:</strong>{" "}
+              <a
+                href="mailto:antonymwangiw85@gmail.com"
+                style={styles.contactLink}
+              >
+                antonymwangiw85@gmail.com
+              </a>
+            </p>
+            <p>
+              📞 <strong>Phone:</strong>{" "}
+              <a
+                href="tel:+254700000000"
+                style={styles.contactLink}
+              >
+                +254 700 000 000
+              </a>
+            </p>
+          </div>
+        </div>
       </section>
     </main>
   );
@@ -195,11 +224,43 @@ const styles = {
     maxWidth: "500px",
   },
 
-  /* Contact */
+  /* Contact (PROFESSIONAL) */
   contact: {
-    padding: "70px 40px",
-    background: "#22c55e",
-    color: "#ffffff",
+    padding: "80px 40px",
+    background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
+    display: "flex",
+    justifyContent: "center",
+  },
+  contactCard: {
+    background: "#ffffff",
+    padding: "40px",
+    borderRadius: "18px",
+    maxWidth: "520px",
+    width: "100%",
     textAlign: "center",
+    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+  },
+  contactTitle: {
+    fontSize: "2rem",
+    fontWeight: "700",
+    marginBottom: "10px",
+    color: "#1f2937",
+  },
+  contactText: {
+    color: "#4b5563",
+    marginBottom: "25px",
+    fontSize: "1.05rem",
+  },
+  contactDetails: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "12px",
+    fontSize: "1.05rem",
+    color: "#1f2937",
+  },
+  contactLink: {
+    color: "#2563eb",
+    textDecoration: "none",
+    fontWeight: "600",
   },
 };
