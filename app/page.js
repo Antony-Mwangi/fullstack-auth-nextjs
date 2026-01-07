@@ -8,7 +8,7 @@ export default function LandingPage() {
     <div style={styles.page}>
       {/* Header */}
       <header style={styles.header}>
-        <div style={styles.logo}>NextAuth App</div>
+        <div style={styles.logo}>Next Notes App</div>
         <nav style={styles.nav}>
           <Link href="#features" style={styles.navLink}>Features</Link>
           <Link href="#about" style={styles.navLink}>About</Link>
@@ -20,7 +20,7 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section style={styles.hero}>
         <div style={styles.heroContent}>
-          <h1 style={styles.heroTitle}>Secure, Simple, and Fast Authentication</h1>
+          <h1 style={styles.heroTitle}>Secure, Simple, and Fast Note taking </h1>
           <p style={styles.heroSubtitle}>
             Manage your account and notes seamlessly. Sign up and start today!
           </p>
@@ -60,7 +60,7 @@ export default function LandingPage() {
       <section id="about" style={styles.about}>
         <h2 style={styles.sectionTitle}>About NextAuth App</h2>
         <p style={styles.aboutText}>
-          NextAuth App is a full-stack application built with Next.js, NextAuth.js, and MongoDB. 
+          Next Notes is a full-stack application built with Next.js, NextAuth.js, and MongoDB. 
           It provides secure user authentication, personalized dashboards, and note management features.
         </p>
         <Image src="/OIP.webp" alt="About" width={500} height={300} />
@@ -69,7 +69,7 @@ export default function LandingPage() {
       {/* Contact Section */}
       <section id="contact" style={styles.contact}>
         <h2 style={styles.sectionTitle}>Contact Us</h2>
-        <p>Email us at: support@nextauthapp.com</p>
+        <p>Email us at: antonymwangiw85@gmail.com</p>
         <p>Phone: +254 700 000 000</p>
       </section>
 
