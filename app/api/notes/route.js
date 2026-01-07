@@ -27,3 +27,5 @@ export async function POST(req) {
   const newNote = await Note.create({ user: session.user.id, title, content });
   return new Response(JSON.stringify({ message: "Note created", note: newNote }));
 }
+
+
