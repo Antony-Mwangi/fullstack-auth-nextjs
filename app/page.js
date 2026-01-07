@@ -30,7 +30,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div style={styles.heroImage}>
-          <Image src="/images/hero.png" alt="Authentication App" fill style={{ objectFit: "contain" }} />
+          <Image src="/OIP (1).webp" alt="Authentication App" fill style={{ objectFit: "contain" }} />
         </div>
       </section>
 
@@ -39,17 +39,17 @@ export default function LandingPage() {
         <h2 style={styles.sectionTitle}>Features</h2>
         <div style={styles.featureGrid}>
           <div style={styles.featureCard}>
-            <Image src="/images/secure.png" alt="Secure" width={60} height={60} />
+            <Image src="/download.webp" alt="Secure" width={60} height={60} />
             <h3>Secure Authentication</h3>
             <p>JWT-based authentication ensures your data is safe and secure.</p>
           </div>
           <div style={styles.featureCard}>
-            <Image src="/images/note.png" alt="Notes" width={60} height={60} />
+            <Image src="/images (5).jpeg" alt="Notes" width={60} height={60} />
             <h3>Personal Notes</h3>
             <p>Organize and manage your notes easily with your private account.</p>
           </div>
           <div style={styles.featureCard}>
-            <Image src="/images/responsive.png" alt="Responsive" width={60} height={60} />
+            <Image src="/download (1).webp" alt="Responsive" width={60} height={60} />
             <h3>Responsive Design</h3>
             <p>Access your dashboard from any device seamlessly.</p>
           </div>
@@ -63,7 +63,7 @@ export default function LandingPage() {
           NextAuth App is a full-stack application built with Next.js, NextAuth.js, and MongoDB. 
           It provides secure user authentication, personalized dashboards, and note management features.
         </p>
-        <Image src="/images/about.png" alt="About" width={500} height={300} />
+        <Image src="/OIP.webp" alt="About" width={500} height={300} />
       </section>
 
       {/* Contact Section */}
