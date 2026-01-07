@@ -2,8 +2,14 @@
 
 import { signOut, useSession } from "next-auth/react";
 
+export const dynamic = "force-dynamic";
+
 export default function DashboardPage() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div style={styles.container}>
