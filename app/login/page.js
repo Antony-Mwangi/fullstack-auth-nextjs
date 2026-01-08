@@ -27,9 +27,9 @@ export default function LoginPage() {
     });
 
     if (res.error) {
-      setError(res.error); // Invalid password or user not found
+      setError(res.error);
     } else {
-      router.push("/dashboard"); // Login success
+      router.push("/dashboard");
     }
   };
 
@@ -76,21 +76,21 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #e0f7e9, #a8e6cf)",
+    background: "linear-gradient(135deg, #f5f0ff, #e0e0ff)", // soft lavender gradient
     fontFamily: "Arial, sans-serif",
   },
   card: {
     width: "350px",
     padding: "40px",
-    borderRadius: "12px",
+    borderRadius: "16px",
     background: "#ffffff",
-    boxShadow: "0 8px 25px rgba(0,0,0,0.15)",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
     textAlign: "center",
   },
   title: {
     fontSize: "1.8rem",
     marginBottom: "8px",
-    color: "#2e7d32", // dark green
+    color: "#6a1b9a", // deep purple
   },
   subtitle: {
     fontSize: "0.95rem",
@@ -104,23 +104,24 @@ const styles = {
   input: {
     padding: "12px",
     marginBottom: "15px",
-    borderRadius: "8px",
-    border: "1px solid #ccc",
+    borderRadius: "10px",
+    border: "1.5px solid #ccc",
     fontSize: "1rem",
+    transition: "border 0.3s, box-shadow 0.3s",
   },
   button: {
     padding: "12px",
-    borderRadius: "8px",
+    borderRadius: "10px",
     border: "none",
-    background: "#43a047", // vibrant green
+    background: "#7b1fa2", // vibrant purple
     color: "#fff",
     fontWeight: "bold",
     fontSize: "1rem",
     cursor: "pointer",
-    transition: "background 0.3s",
+    transition: "background 0.3s, transform 0.2s",
   },
   error: {
-    color: "#d32f2f",
+    color: "#e53935", // bright red for errors
     marginBottom: "10px",
     fontWeight: "bold",
   },
@@ -130,7 +131,7 @@ const styles = {
     color: "#555",
   },
   registerLink: {
-    color: "#2e7d32",
+    color: "#ff7043", // coral accent
     fontWeight: "bold",
     textDecoration: "none",
   },
