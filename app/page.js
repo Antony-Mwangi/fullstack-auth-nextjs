@@ -5,63 +5,64 @@ import Image from "next/image";
 
 export default function LandingPage() {
   return (
-    <main style={styles.page}>
+    <main className="page">
       {/* Hero Section */}
-      <section style={styles.hero}>
-        <div style={styles.heroText}>
-          <h1 style={styles.heroTitle}>
-            Organize Your Notes <br /> Securely & Effortlessly
+      <section className="hero container">
+        <div className="heroText">
+          <h1 className="heroTitle">
+            Organize Your Notes <br /> <span>Securely & Effortlessly</span>
           </h1>
-          <p style={styles.heroSubtitle}>
+          <p className="heroSubtitle">
             A modern notes app built with Next.js, NextAuth, and MongoDB.
             Your notes are private, secure, and always available.
           </p>
 
-          <div style={styles.heroButtons}>
-            <Link href="/register" style={styles.primaryBtn}>
+          <div className="heroButtons">
+            <Link href="/register" className="primaryBtn">
               Get Started
             </Link>
-            <Link href="/login" style={styles.secondaryBtn}>
+            <Link href="/login" className="secondaryBtn">
               Login
             </Link>
           </div>
         </div>
 
-        <div style={styles.heroImage}>
+        <div className="heroImage">
           <Image
-            src="/OIP (1).webp"
+            src="/images (5).jpeg"
             alt="Notes illustration"
             fill
-            style={{ objectFit: "contain" }}
+            className="img-contain"
             priority
           />
         </div>
       </section>
 
       {/* Features */}
-      <section style={styles.features}>
-        <h2 style={styles.sectionTitle}>Why Choose Next Notes?</h2>
+      <section className="features container">
+        <h2 className="sectionTitle">Why Choose Next Notes?</h2>
 
-        <div style={styles.featureGrid}>
-          <div style={styles.card}>
-            <Image src="/download.webp" width={50} height={50} alt="Security" />
+        <div className="featureGrid">
+          <div className="card">
+            <div className="icon-box">
+               <Image src="/download.webp" width={50} height={50} alt="Security" />
+            </div>
             <h3>Secure Authentication</h3>
             <p>Protected login using industry-standard authentication.</p>
           </div>
 
-          <div style={styles.card}>
-            <Image src="/images (5).jpeg" width={50} height={50} alt="Notes" />
+          <div className="card">
+             <div className="icon-box">
+               <Image src="/images (5).jpeg" width={50} height={50} alt="Notes" />
+            </div>
             <h3>Personalized Notes</h3>
             <p>Your notes belong only to you — fully private.</p>
           </div>
 
-          <div style={styles.card}>
-            <Image
-              src="/download (1).webp"
-              width={50}
-              height={50}
-              alt="Responsive"
-            />
+          <div className="card">
+             <div className="icon-box">
+               <Image src="/download (1).webp" width={50} height={50} alt="Responsive" />
+            </div>
             <h3>Works Everywhere</h3>
             <p>Access your notes from desktop, tablet, or mobile.</p>
           </div>
@@ -69,198 +70,190 @@ export default function LandingPage() {
       </section>
 
       {/* About */}
-      <section style={styles.about}>
-        <div style={styles.aboutContent}>
-          <div>
-            <h2 style={styles.sectionTitle}>Built for Simplicity</h2>
-            <p style={styles.aboutText}>
+      <section className="about">
+        <div className="aboutContent container">
+          <div className="aboutText-wrapper">
+            <h2 className="sectionTitle">Built for Simplicity</h2>
+            <p className="aboutText">
               Next Notes is designed to stay out of your way.
               No clutter. No distractions. Just clean note-taking
               with strong security and fast performance.
             </p>
           </div>
 
-          <Image
-            src="/OIP.webp"
-            alt="About illustration"
-            width={420}
-            height={260}
-            style={{ borderRadius: "12px" }}
-          />
+          <div className="aboutImage">
+            <Image
+                src="/OIP.webp"
+                alt="About illustration"
+                width={420}
+                height={260}
+                className="rounded-img"
+            />
+          </div>
         </div>
       </section>
 
       {/* Contact */}
-      <section style={styles.contact}>
-        <div style={styles.contactCard}>
-          <h2 style={styles.contactTitle}>Need Help?</h2>
-          <p style={styles.contactText}>
+      <section className="contact">
+        <div className="contactCard">
+          <h2 className="contactTitle">Need Help?</h2>
+          <p className="contactText">
             Reach out to us anytime — we’re happy to help.
           </p>
 
-          <div style={styles.contactDetails}>
-            <p>
-              📧 <strong>Email:</strong>{" "}
-              <a
-                href="mailto:antonymwangiw85@gmail.com"
-                style={styles.contactLink}
-              >
-                antonymwangiw85@gmail.com
-              </a>
-            </p>
-            <p>
-              📞 <strong>Phone:</strong>{" "}
-              <a
-                href="tel:+254700000000"
-                style={styles.contactLink}
-              >
-                +254 700 000 000
-              </a>
-            </p>
+          <div className="contactDetails">
+            <div className="contactRow">
+              <span>📧</span>
+              <a href="mailto:antonymwangiw85@gmail.com">antonymwangiw85@gmail.com</a>
+            </div>
+            <div className="contactRow">
+              <span>📞</span>
+              <a href="tel:+254700000000">+254 700 000 000</a>
+            </div>
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .page {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          color: #1f2937;
+          overflow-x: hidden;
+        }
+
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+          display: grid;
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 40px;
+          padding-top: 100px;
+          padding-bottom: 100px;
+          min-height: 80vh;
+          align-items: center;
+        }
+        
+        /* Gradient Background for Hero only */
+        .page::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100vh;
+            background: linear-gradient(135deg, #e0f7e9 0%, #f0fdf4 100%);
+            z-index: -1;
+        }
+
+        .heroTitle {
+          font-size: clamp(2.5rem, 5vw, 3.5rem);
+          font-weight: 800;
+          line-height: 1.1;
+          margin-bottom: 24px;
+          color: #111827;
+        }
+
+        .heroTitle span { color: #22c55e; }
+
+        .heroSubtitle {
+          font-size: 1.15rem;
+          line-height: 1.7;
+          color: #4b5563;
+          margin-bottom: 32px;
+          max-width: 520px;
+        }
+
+        .heroButtons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        .primaryBtn, .secondaryBtn {
+          padding: 14px 32px;
+          border-radius: 12px;
+          text-decoration: none;
+          fontWeight: 700;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .primaryBtn { background: #22c55e; color: white; box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3); }
+        .secondaryBtn { background: #2563eb; color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); }
+        
+        .primaryBtn:hover, .secondaryBtn:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        .heroImage { position: relative; width: 100%; height: 400px; }
+        .img-contain { object-fit: contain; }
+
+        /* Features Section */
+        .features { padding: 100px 20px; text-align: center; }
+        .sectionTitle { font-size: 2.25rem; font-weight: 800; margin-bottom: 60px; color: #111827; }
+
+        .featureGrid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 32px;
+        }
+
+        .card {
+          background: #ffffff;
+          padding: 40px 30px;
+          border-radius: 24px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+          transition: transform 0.3s;
+          border: 1px solid #f3f4f6;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .icon-box { margin-bottom: 20px; }
+        .card h3 { font-size: 1.25rem; margin-bottom: 12px; color: #111827; }
+        .card p { color: #6b7280; font-size: 0.95rem; }
+
+        /* About Section */
+        .about { padding: 100px 0; background: #f9fafb; }
+        .aboutContent { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .aboutText { font-size: 1.125rem; line-height: 1.8; color: #4b5563; }
+        .rounded-img { border-radius: 24px; width: 100%; height: auto; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+
+        /* Contact Section */
+        .contact {
+          padding: 100px 20px;
+          background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        }
+        .contactCard {
+          background: #ffffff;
+          padding: 50px;
+          border-radius: 32px;
+          max-width: 600px;
+          margin: 0 auto;
+          text-align: center;
+          box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        .contactTitle { font-size: 2.5rem; margin-bottom: 12px; }
+        .contactRow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .contactRow a { color: #2563eb; text-decoration: none; font-weight: 600; }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 968px) {
+          .hero, .aboutContent { grid-template-columns: 1fr; text-align: center; }
+          .heroText { order: 2; }
+          .heroImage { order: 1; height: 300px; }
+          .heroSubtitle, .aboutText { margin-left: auto; margin-right: auto; }
+          .heroButtons { justify-content: center; }
+          .aboutImage { margin-top: 40px; }
+        }
+
+        @media (max-width: 480px) {
+          .heroTitle { font-size: 2rem; }
+          .primaryBtn, .secondaryBtn { width: 100%; text-align: center; }
+          .contactCard { padding: 30px 20px; }
+          .sectionTitle { font-size: 1.75rem; }
+        }
+      `}</style>
     </main>
   );
 }
-
-/* =======================
-   Styles
-======================= */
-
-const styles = {
-  page: {
-    fontFamily: "system-ui, -apple-system, sans-serif",
-    color: "#1f2937",
-  },
-
-  /* Hero */
-  hero: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "40px",
-    padding: "100px 60px",
-    background: "linear-gradient(135deg, #e0f7e9, #f0fdf4)",
-  },
-  heroText: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-  },
-  heroTitle: {
-    fontSize: "3rem",
-    fontWeight: "800",
-    marginBottom: "20px",
-  },
-  heroSubtitle: {
-    fontSize: "1.15rem",
-    lineHeight: 1.7,
-    color: "#374151",
-    marginBottom: "32px",
-    maxWidth: "520px",
-  },
-  heroButtons: {
-    display: "flex",
-    gap: "16px",
-  },
-  primaryBtn: {
-    background: "#22c55e",
-    color: "#fff",
-    padding: "14px 28px",
-    borderRadius: "10px",
-    textDecoration: "none",
-    fontWeight: "600",
-  },
-  secondaryBtn: {
-    background: "#2563eb",
-    color: "#fff",
-    padding: "14px 28px",
-    borderRadius: "10px",
-    textDecoration: "none",
-    fontWeight: "600",
-  },
-  heroImage: {
-    position: "relative",
-    minHeight: "320px",
-  },
-
-  /* Features */
-  features: {
-    padding: "90px 60px",
-    background: "#ffffff",
-    textAlign: "center",
-  },
-  sectionTitle: {
-    fontSize: "2.2rem",
-    fontWeight: "700",
-    marginBottom: "50px",
-  },
-  featureGrid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "30px",
-  },
-  card: {
-    background: "#f9fafb",
-    padding: "30px",
-    borderRadius: "16px",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
-  },
-
-  /* About */
-  about: {
-    padding: "90px 60px",
-    background: "#f3f4f6",
-  },
-  aboutContent: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr",
-    gap: "40px",
-    alignItems: "center",
-  },
-  aboutText: {
-    fontSize: "1.1rem",
-    lineHeight: 1.7,
-    maxWidth: "500px",
-  },
-
-  /* Contact (PROFESSIONAL) */
-  contact: {
-    padding: "80px 40px",
-    background: "linear-gradient(135deg, #3b82f6, #06b6d4)",
-    display: "flex",
-    justifyContent: "center",
-  },
-  contactCard: {
-    background: "#ffffff",
-    padding: "40px",
-    borderRadius: "18px",
-    maxWidth: "520px",
-    width: "100%",
-    textAlign: "center",
-    boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
-  },
-  contactTitle: {
-    fontSize: "2rem",
-    fontWeight: "700",
-    marginBottom: "10px",
-    color: "#1f2937",
-  },
-  contactText: {
-    color: "#4b5563",
-    marginBottom: "25px",
-    fontSize: "1.05rem",
-  },
-  contactDetails: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-    fontSize: "1.05rem",
-    color: "#1f2937",
-  },
-  contactLink: {
-    color: "#2563eb",
-    textDecoration: "none",
-    fontWeight: "600",
-  },
-};

@@ -67,13 +67,13 @@ export default function DashboardPage() {
   return (
     <>
       <div className="page">
-        <div className="header">
-          <h1>Welcome, {session?.user?.email}</h1>
-          <button onClick={() => signOut({ callbackUrl: "/login" })}>Logout</button>
-        </div>
+        <header className="header">
+          <h1>Welcome, {session?.user?.email.split('@')[0]}</h1>
+          <button className="logout-btn" onClick={() => signOut({ callbackUrl: "/login" })}>Logout</button>
+        </header>
 
-        <div className="main">
-          <div className="form-section">
+        <main className="main">
+          <section className="form-section">
             <h2>Add a Note</h2>
             {error && <p className="error">{error}</p>}
             <form onSubmit={handleAddNote}>
@@ -90,124 +90,197 @@ export default function DashboardPage() {
               />
               <button type="submit">Add Note</button>
             </form>
-          </div>
+          </section>
 
-          <div className="image-section">
+          <section className="image-section">
             <Image src="/images (5).jpeg" alt="Dashboard" fill className="side-image" />
-          </div>
-        </div>
+          </section>
+        </main>
 
-        <div className="notes-section">
+        <section className="notes-section">
           <h2>Your Notes</h2>
-          {notes.length === 0 && <p>No notes yet</p>}
-          {notes.map((note) => (
-            <div key={note._id} className="note">
-              <h3>{note.title}</h3>
-              <p>{note.content}</p>
-              <div className="note-actions">
-                <button onClick={() => handleEdit(note._id)}>Edit</button>
-                <button onClick={() => handleDelete(note._id)}>Delete</button>
+          {notes.length === 0 && <p className="empty-state">No notes yet</p>}
+          <div className="notes-grid">
+            {notes.map((note) => (
+              <div key={note._id} className="note-card">
+                <h3>{note.title}</h3>
+                <p>{note.content}</p>
+                <div className="note-actions">
+                  <button onClick={() => handleEdit(note._id)}>Edit</button>
+                  <button onClick={() => handleDelete(note._id)}>Delete</button>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </section>
       </div>
 
       <style>{`
         * { box-sizing: border-box; }
-        body { margin: 0; font-family: Arial, sans-serif; }
+        body { margin: 0; font-family: 'Inter', sans-serif; }
 
+        /* Page background */
         .page {
-          padding: 40px;
-          background: #e0f7e9;
           min-height: 100vh;
+          padding: 40px 20px;
+          background: linear-gradient(160deg, #f5f0ff, #e0e0ff);
         }
 
+        /* Header */
         .header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           margin-bottom: 40px;
         }
-
-        .header button {
+        .header h1 {
+          font-size: 1.8rem;
+          color: #5e35b1;
+          font-weight: 700;
+        }
+        .logout-btn {
           padding: 10px 20px;
-          background: #43a047;
+          background: #f06292;
           color: #fff;
           border: none;
-          border-radius: 8px;
+          border-radius: 12px;
           cursor: pointer;
+          font-weight: 600;
+          transition: background 0.2s;
         }
+        .logout-btn:hover { background: #c2185b; }
 
+        /* Main section */
         .main {
           display: flex;
-          gap: 40px;
-          align-items: flex-start;
+          gap: 30px;
+          flex-wrap: wrap;
           margin-bottom: 50px;
         }
 
         .form-section {
+          flex: 1;
+          min-width: 280px;
+          background: #ffffff;
+          padding: 25px;
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .form-section h2 {
+          margin-bottom: 15px;
+          color: #6a1b9a;
+        }
+        .form-section form {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .form-section input,
+        .form-section textarea {
+          padding: 12px 14px;
+          border-radius: 10px;
+          border: 1.5px solid #ccc;
+          font-size: 1rem;
+          transition: border 0.2s, box-shadow 0.2s;
+        }
+        .form-section input:focus,
+        .form-section textarea:focus {
+          outline: none;
+          border-color: #7b1fa2;
+          box-shadow: 0 0 0 3px rgba(123,31,162,0.15);
+        }
+        .form-section button {
+          padding: 12px;
+          border-radius: 10px;
+          border: none;
+          background: #5e35b1;
+          color: #fff;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background 0.2s, transform 0.2s;
+        }
+        .form-section button:hover {
+          background: #4527a0;
+          transform: translateY(-1px);
+        }
+        .error {
+          color: #d32f2f;
+          font-weight: 600;
+          margin-bottom: 8px;
+        }
+
+        /* Image section */
+        .image-section {
+          flex: 1;
+          min-width: 250px;
+          position: relative;
+          min-height: 250px;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .side-image { object-fit: cover; }
+
+        /* Notes section */
+        .notes-section h2 {
+          margin-bottom: 20px;
+          color: #6a1b9a;
+        }
+        .empty-state {
           background: #fff;
           padding: 20px;
           border-radius: 12px;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-          flex: 1;
+          color: #888;
+          text-align: center;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.05);
         }
-
-        .form-section h2 {
-          margin-bottom: 10px;
+        .notes-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 20px;
         }
-
-        form { display: flex; flex-direction: column; gap: 10px; }
-        input, textarea {
-          padding: 10px;
-          border-radius: 6px;
-          border: 1px solid #ccc;
-          font-size: 1rem;
+        .note-card {
+          background: #ffffff;
+          padding: 18px;
+          border-radius: 12px;
+          box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
         }
-        textarea { min-height: 80px; resize: vertical; }
-
-        form button {
-          padding: 10px;
-          border-radius: 6px;
-          border: none;
-          background: #2e7d32;
-          color: #fff;
-          font-weight: bold;
-          cursor: pointer;
+        .note-card h3 {
+          margin-bottom: 8px;
+          color: #7b1fa2;
         }
-
-        .error { color: #d32f2f; font-weight: bold; }
-
-        .image-section {
-          flex: 1;
-          position: relative;
-          min-height: 250px;
+        .note-card p {
+          margin-bottom: 12px;
+          color: #555;
+          font-size: 0.95rem;
         }
-        .side-image { object-fit: contain; }
-
-        .notes-section h2 { margin-bottom: 15px; }
-        .note {
-          background: #fff;
-          padding: 15px;
-          border-radius: 8px;
-          box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-          margin-bottom: 10px;
+        .note-actions {
+          display: flex;
+          gap: 10px;
         }
-        .note-actions { margin-top: 10px; display: flex; gap: 10px; }
         .note-actions button {
-          padding: 5px 10px;
-          border-radius: 5px;
+          flex: 1;
+          padding: 8px;
+          border-radius: 8px;
           border: none;
           cursor: pointer;
+          font-weight: 500;
           font-size: 0.85rem;
         }
-        .note-actions button:first-child { background: #1976d2; color: #fff; }
-        .note-actions button:last-child { background: #d32f2f; color: #fff; }
+        .note-actions button:first-child { background: #29b6f6; color: #fff; }
+        .note-actions button:last-child { background: #ef5350; color: #fff; }
 
+        /* Responsive */
         @media (max-width: 900px) {
           .main { flex-direction: column; gap: 20px; }
           .image-section { min-height: 200px; }
+        }
+        @media (max-width: 480px) {
+          .page { padding: 20px 10px; }
+          .form-section, .image-section { min-width: 100%; }
         }
       `}</style>
     </>
