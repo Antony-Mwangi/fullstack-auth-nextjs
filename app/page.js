@@ -132,11 +132,19 @@ export default function LandingPage() {
           display: grid;
           grid-template-columns: 1.2fr 0.8fr;
           gap: 40px;
-          padding: 100px 0;
+          padding-top: 100px;
+          padding-bottom: 100px;
           min-height: 80vh;
           align-items: center;
-          background: linear-gradient(135deg, #e0f7e9 0%, #f0fdf4 100%); /* Apply gradient directly */
-          border-radius: 32px;
+        }
+        
+        /* Gradient Background for Hero only */
+        .page::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 100vh;
+            background: linear-gradient(135deg, #e0f7e9 0%, #f0fdf4 100%);
+            z-index: -1;
         }
 
         .heroTitle {
@@ -146,6 +154,7 @@ export default function LandingPage() {
           margin-bottom: 24px;
           color: #111827;
         }
+
         .heroTitle span { color: #22c55e; }
 
         .heroSubtitle {
@@ -162,12 +171,13 @@ export default function LandingPage() {
           padding: 14px 32px;
           border-radius: 12px;
           text-decoration: none;
-          font-weight: 700;
+          fontWeight: 700;
           transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .primaryBtn { background: #22c55e; color: white; box-shadow: 0 4px 14px rgba(34, 197, 94, 0.3); }
         .secondaryBtn { background: #2563eb; color: white; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3); }
+        
         .primaryBtn:hover, .secondaryBtn:hover { transform: translateY(-2px); opacity: 0.9; }
 
         .heroImage { position: relative; width: 100%; height: 400px; }
