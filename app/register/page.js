@@ -96,7 +96,7 @@ export default function RegisterPage() {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: linear-gradient(135deg, #e0f7e9 0%, #a8e6cf 100%);
+          background: linear-gradient(135deg, #e0f0ff 0%, #c0e0ff 100%); /* soft blue gradient */
           padding: 20px;
           font-family: 'Inter', -apple-system, sans-serif;
         }
@@ -108,7 +108,7 @@ export default function RegisterPage() {
           backdrop-filter: blur(8px);
           padding: 40px;
           border-radius: 24px;
-          box-shadow: 0 15px 35px rgba(46, 125, 50, 0.1);
+          box-shadow: 0 15px 35px rgba(63, 81, 181, 0.15); /* subtle blue shadow */
           text-align: center;
           animation: fadeIn 0.4s ease-out;
         }
@@ -121,32 +121,32 @@ export default function RegisterPage() {
         .icon-wrapper {
           width: 56px;
           height: 56px;
-          background: #43a047;
+          background: #3f51b5; /* deep indigo */
           color: white;
           border-radius: 16px;
           display: flex;
           align-items: center;
           justify-content: center;
           margin: 0 auto 20px;
-          box-shadow: 0 8px 16px rgba(67, 160, 71, 0.2);
+          box-shadow: 0 8px 16px rgba(63, 81, 181, 0.2);
         }
 
         .title {
           font-size: 1.8rem;
-          color: #1b5e20;
+          color: #303f9f; /* indigo */
           font-weight: 800;
           margin-bottom: 8px;
         }
 
         .subtitle {
-          color: #666;
+          color: #555;
           font-size: 0.95rem;
           margin-bottom: 30px;
           line-height: 1.4;
         }
 
         .error-banner {
-          background: #fdf2f2;
+          background: #fff0f0; /* soft coral */
           color: #d32f2f;
           padding: 12px;
           border-radius: 10px;
@@ -175,7 +175,7 @@ export default function RegisterPage() {
         .input-field input {
           width: 100%;
           padding: 14px;
-          border: 2px solid #edf2f0;
+          border: 2px solid #d0d7e0; /* light gray border */
           border-radius: 12px;
           font-size: 1rem;
           transition: all 0.2s;
@@ -183,13 +183,13 @@ export default function RegisterPage() {
 
         .input-field input:focus {
           outline: none;
-          border-color: #43a047;
+          border-color: #3f51b5; /* indigo focus */
           background: #fff;
-          box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.08);
+          box-shadow: 0 0 0 4px rgba(63, 81, 181, 0.08);
         }
 
         .reg-btn {
-          background: #2e7d32;
+          background: #ff7043; /* coral button */
           color: white;
           padding: 15px;
           border: none;
@@ -202,7 +202,7 @@ export default function RegisterPage() {
         }
 
         .reg-btn:hover:not(:disabled) {
-          background: #1b5e20;
+          background: #f4511e; /* darker coral on hover */
           transform: translateY(-1px);
         }
 
@@ -214,11 +214,11 @@ export default function RegisterPage() {
         .footer-text {
           margin-top: 25px;
           font-size: 0.9rem;
-          color: #666;
+          color: #555;
         }
 
         .link {
-          color: #2e7d32;
+          color: #3f51b5; /* indigo link */
           font-weight: 700;
           text-decoration: none;
         }
